@@ -12,3 +12,26 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+.todo-container {
+  max-width: 1290px;
+  margin: 0 auto;
+  background-color: lightblue;
+}
+
+/* General styling */
+button {
+  border: none;
+  min-width: 80px;
+  padding: 6px 12px;
+}
+
+button.update-btn {
+  background-color: blue;
+  color: white;
+}
+
+button.update-btn:hover {
+  background-color: rgba(0, 0, 255, 0.521);
+  color: white;
+}

@@ -1,0 +1,19 @@
+.todo-list-wrapper {
+  background-color: lightgoldenrodyellow;
+}
+
+.todo-section {
+  background-color: darkseagreen;
+}
+
+.uncompleted-tasks {
+  border: 1px solid black;
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.todo-section .description {
+  min-width: 500px;
+  padding: 0 30px;
+}

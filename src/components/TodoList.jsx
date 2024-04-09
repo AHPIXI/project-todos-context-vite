@@ -9,7 +9,6 @@ import "./TodoList.css";
  *
  * Access
  * - todos
- * -
  */
 
 export const TodoList = () => {
@@ -38,6 +37,7 @@ export const TodoList = () => {
               <div key={todo.id} className="todo-wrapper">
                 <div className="checkbox">checkbox</div>
                 <p className="description">{todo.description}</p>
+                {/* This button should say Save after clicking on update */}
                 <button className="update-btn">Update</button>
               </div>
             )
@@ -52,7 +52,7 @@ export const TodoList = () => {
                 <div key={todo.id} className="todo-wrapper">
                   <div className="checkbox">checkbox</div>
                   <p className="description">{todo.description}</p>
-                  <button className="update-btn">Update</button>
+                  <button className="delete-btn">Delete</button>
                 </div>
               )
           )}

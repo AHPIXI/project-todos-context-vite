@@ -35,3 +35,13 @@ button.update-btn:hover {
   background-color: rgba(0, 0, 255, 0.521);
   color: white;
 }
+
+button.delete-btn {
+  background-color: red;
+  color: white;
+}
+
+button.delete-btn:hover {
+  background-color: rgba(255, 0, 0, 0.492);
+  color: white;
+}

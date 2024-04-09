@@ -1,5 +1,17 @@
 import "./TodoList.css";
 
+/**
+ *
+ * Actions
+ * - completed / uncompleted
+ * - update
+ * - remove
+ *
+ * Access
+ * - todos
+ * -
+ */
+
 export const TodoList = () => {
   const todos = [
     {
@@ -16,6 +28,7 @@ export const TodoList = () => {
 
   return (
     <div className="todo-list-wrapper">
+      <p className="totals">Total of tasks: {todos.length}</p>
       <div className="todo-section uncompleted-section">
         <h3>Uncompleted tasks</h3>
         {/* Mapp all uncompleted lists */}
@@ -23,7 +36,6 @@ export const TodoList = () => {
           (todo) =>
             !todo.isCompleted && (
               <div key={todo.id} className="todo-wrapper">
-                {/* setCompleted */}
                 <div className="checkbox">checkbox</div>
                 <p className="description">{todo.description}</p>
                 <button className="update-btn">Update</button>
@@ -38,7 +50,6 @@ export const TodoList = () => {
             (todo) =>
               todo.isCompleted && (
                 <div key={todo.id} className="todo-wrapper">
-                  {/* setCompleted */}
                   <div className="checkbox">checkbox</div>
                   <p className="description">{todo.description}</p>
                   <button className="update-btn">Update</button>

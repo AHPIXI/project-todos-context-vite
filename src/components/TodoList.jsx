@@ -35,10 +35,12 @@ export const TodoList = () => {
           (todo) =>
             !todo.isCompleted && (
               <div key={todo.id} className="todo-wrapper">
-                <div className="checkbox">checkbox</div>
-                <p className="description">{todo.description}</p>
-                {/* This button should say Save after clicking on update */}
-                <button className="update-btn">Update</button>
+                <form>
+                  <input type="checkbox" />
+                  <p className="description">{todo.description}</p>
+                  {/* This button should say Save after clicking on update */}
+                  <button className="update-btn">Update</button>
+                </form>
               </div>
             )
         )}
@@ -50,9 +52,11 @@ export const TodoList = () => {
             (todo) =>
               todo.isCompleted && (
                 <div key={todo.id} className="todo-wrapper">
-                  <div className="checkbox">checkbox</div>
-                  <p className="description">{todo.description}</p>
-                  <button className="delete-btn">Delete</button>
+                  <form>
+                    <input type="checkbox" />
+                    <p className="description">{todo.description}</p>
+                    <button className="delete-btn">Delete</button>
+                  </form>
                 </div>
               )
           )}

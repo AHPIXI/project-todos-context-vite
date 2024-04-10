@@ -8,6 +8,9 @@
 
 .todo-wrapper {
   border: 1px solid black;
+}
+
+.todo-wrapper form {
   display: flex;
   align-items: center;
   margin: 10px 0;

@@ -9,11 +9,11 @@ import { useTodo } from "../contexts/TodoContext";
  * - remove
  *
  * Access
- * - todos
+ * - fetch all todos
  */
 
 export const TodoList = () => {
-  // Get todos from globel state
+  // Fetch all todos from globel state
   const { todos } = useTodo();
   console.log(todos);
 

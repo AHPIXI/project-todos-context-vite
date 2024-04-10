@@ -1,20 +1,27 @@
 import { useState } from "react";
+import { useTodo } from "../contexts/TodoContext";
 import "./TodoForm.css";
 
-export const TodoForm = () => {
-  //     const { todo, addTodo } = useTodo()
-  // const [newTodo, setNewTodo] = useState({
-  //     todotext: ""
-  // })
+/**
+ * Action
+ * - Add a todo
+ */
 
-  // const handleChange = event => {
-  //     setNewTodo({...newTodo,[event.target.name]: event.target.value})
-  // }
+export const TodoForm = () => {
+  const { addTodo } = useTodo();
+  const [newTodo, setNewTodo] = useState({
+    description: "",
+    isCompleted: false,
+  });
+
+  const handleChange = (event) => {
+    setNewTodo({ ...newTodo, [event.target.name]: event.target.value });
+  };
   const handleSubmit = (event) => {
     event.preventDefault();
-    //   addTodo(newTodo)
-    //   setNewTodo(({ todotext: "" }))
-    console.log(event);
+    addTodo(newTodo);
+    setNewTodo({ description: "" });
+    // console.log(event);
   };
   return (
     <>
@@ -22,14 +29,13 @@ export const TodoForm = () => {
         <label>Create new todo</label>
         <input
           type="text"
-          name="todotext"
+          name="description"
           placeholder="Add a new todo here..."
+          value={newTodo.todotext}
+          onChange={handleChange}
         />
         <button>Add task</button>
       </form>
     </>
   );
 };
-
-// value={newTodo.todotext}
-// onChange={handleChange}

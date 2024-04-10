@@ -1,4 +1,9 @@
-// This is the global state file
+// GLOBAL STATE file for adding, updating and removing todos
+
+/**
+ * 1 step -> Pass todos to TodoList component.
+ * 2 step -> Add a new todo
+ */
 
 import { createContext, useContext, useState } from "react";
 
@@ -8,23 +13,25 @@ export const TodoProvider = ({ children }) => {
   // This variable will contain all the todos
   const [todos, setTodos] = useState([
     {
-      id: 1,
       description: "First todo....",
       isCompleted: false,
     },
     {
-      id: 2,
       description: "Second todo....",
       isCompleted: true,
     },
   ]);
 
-  /**
-   * Pass todos to TodoList component.
-   */
+  // Function that will add todos
+  const addTodo = (todo) => {
+    // Add new todo to the todos array.
+    setTodos([...todos, todo]);
+  };
 
   return (
-    <TodoContext.Provider value={{ todos }}>{children}</TodoContext.Provider>
+    <TodoContext.Provider value={{ todos, addTodo, useTodo }}>
+      {children}
+    </TodoContext.Provider>
   );
 };
 

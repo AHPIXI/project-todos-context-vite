@@ -49,12 +49,12 @@ button {
 }
 
 button.update-btn {
-  background-color: blue;
+  background-color: #000;
   color: white;
 }
 
 button.update-btn:hover {
-  background-color: rgba(0, 0, 255, 0.521);
+  background-color: rgba(0, 0, 0, 0.521);
   color: white;
 }
 

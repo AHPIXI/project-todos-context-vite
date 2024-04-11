@@ -7,6 +7,12 @@ import "./TodoForm.css";
  * - Add a todo
  */
 
+/**
+ * TODOS:
+ * Remove text in input field after adding new task
+ *
+ */
+
 export const TodoForm = () => {
   const { addTodo } = useTodo();
   const [newTodo, setNewTodo] = useState({

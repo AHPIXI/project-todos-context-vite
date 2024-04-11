@@ -4,11 +4,11 @@ import { TodoProvider } from "./contexts/TodoContext";
 
 export const App = () => {
   return (
-    <div className="todo-container">
+    <main>
       <TodoProvider>
         <TodoForm />
         <TodoList />
       </TodoProvider>
-    </div>
+    </main>
   );
 };

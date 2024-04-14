@@ -1,24 +1,17 @@
 import "./TodoList.css";
 import { useTodo } from "../contexts/TodoContext";
-
-/**
- *
- * Actions
- * - completed / uncompleted ✅
- * - update
- * - remove
- *
- * Fetch
- * - fetch all todos ✅
- *
- * Todos
- * - Only display list when there are todos added ✅
- * - Add tasks into localstorage.
- */
+import { useState } from "react";
 
 export const TodoList = () => {
   // Fetch all todos from globel state
   const { todos, updateTodo, removeTodo } = useTodo();
+  const [updatedDescription, setUpdatedDescription] = useState("");
+  const [editMode, setEditMode] = useState(null);
+
+  // Function that will handle update click and activate edit mode
+  const handleUpdateClick = (id) => {
+    setEditMode(id);
+  };
 
   // Function that handles uncompleted or completed todos
   const handleCheckboxChange = (id) => {
@@ -31,11 +24,18 @@ export const TodoList = () => {
     updateTodo(updatedTodos);
   };
 
+  // Function that will save the incomming changes and close edit mode.
+  const handleSave = (id) => {
+    const updatedTodo = todos.find((todo) => todo.id === id);
+    updatedTodo.description = updatedDescription;
+    updateTodo(updatedTodo);
+    setEditMode(null);
+  };
+
   return (
     <>
       {todos.length > 0 && (
         <div className="todo-list-wrapper">
-          <p className="totals">Total of tasks: {todos.length}</p>
           <div className="todo-section uncompleted-section">
             <h3>Uncompleted tasks</h3>
             {/* Mapp all uncompleted lists */}
@@ -47,12 +47,39 @@ export const TodoList = () => {
                       <input
                         type="checkbox"
                         checked={todo.isCompleted}
-                        // Listen to changes and pass the id as an argument to handleCheck.. funtion
                         onChange={() => handleCheckboxChange(todo.id)}
                       />
-                      <p className="description">{todo.description}</p>
-                      {/* This button should say Save after clicking on update */}
-                      <button className="update-btn">Update</button>
+                      {/* Activate edit mode if update btn has been clicked on */}
+                      {editMode === todo.id ? (
+                        <>
+                          <input
+                            type="text"
+                            value={updatedDescription}
+                            onChange={(e) =>
+                              setUpdatedDescription(e.target.value)
+                            }
+                            placeholder={todo.description}
+                          />
+                          <button
+                            type="button"
+                            className="save-btn"
+                            onClick={() => handleSave(todo.id)}
+                          >
+                            Save
+                          </button>
+                        </>
+                      ) : (
+                        <>
+                          <p className="description">{todo.description}</p>
+                          <button
+                            type="button"
+                            className="update-btn"
+                            onClick={() => handleUpdateClick(todo.id)}
+                          >
+                            Update
+                          </button>
+                        </>
+                      )}
                     </form>
                   </div>
                 )

@@ -3,12 +3,13 @@ import { useTodo } from "../contexts/TodoContext";
 import "./TodoForm.css";
 
 export const TodoForm = () => {
-  const { addTodo, removeTodo } = useTodo();
+  const { addTodo } = useTodo();
   const [newTodo, setNewTodo] = useState("");
 
   const handleChange = (event) => {
     setNewTodo(event.target.value);
   };
+
   const handleSubmit = (event) => {
     event.preventDefault();
     addTodo({
@@ -17,8 +18,8 @@ export const TodoForm = () => {
       isCompleted: false,
     });
     setNewTodo("");
-    // console.log(event);
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>

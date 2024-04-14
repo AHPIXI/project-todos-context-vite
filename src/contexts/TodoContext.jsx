@@ -1,10 +1,3 @@
-// GLOBAL STATE file for adding, updating and removing todos
-
-/**
- * 1 step -> Pass todos to TodoList component.
- * 2 step -> Add a new todo
- */
-
 import { createContext, useContext, useState } from "react";
 
 export const TodoContext = createContext();
@@ -36,13 +29,14 @@ export const TodoProvider = ({ children }) => {
       todo.id === updatedTodo.id ? updatedTodo : todo
     );
     // Replace the todo with the updated Todo
-    setTodos(updatedTodo);
- };
- // Function that will remove Todo
- const removeTodo = (todoToDelete) => {
-  const addTodo = todos.filter((todo) => todo.id !== todoToDelete)
-  setTodos(addTodo)
- }
+    setTodos(updatedTodos);
+  };
+
+  // Function that will remove Todo
+  const removeTodo = (todoToDelete) => {
+    const addTodo = todos.filter((todo) => todo.id !== todoToDelete);
+    setTodos(addTodo);
+  };
 
   return (
     <TodoContext.Provider value={{ todos, addTodo, updateTodo, removeTodo }}>

@@ -18,7 +18,7 @@ import { useTodo } from "../contexts/TodoContext";
 
 export const TodoList = () => {
   // Fetch all todos from globel state
-  const { todos, updateTodo } = useTodo();
+  const { todos, updateTodo, removeTodo } = useTodo();
 
   // Function that handles uncompleted or completed todos
   const handleCheckboxChange = (id) => {
@@ -72,7 +72,12 @@ export const TodoList = () => {
                           onChange={() => handleCheckboxChange(todo.id)}
                         />
                         <p className="description">{todo.description}</p>
-                        <button className="delete-btn">Delete</button>
+                        <button
+                          className="delete-btn"
+                          onClick={() => removeTodo(todo.id)}
+                        >
+                          Delete
+                        </button>
                       </form>
                     </div>
                   )

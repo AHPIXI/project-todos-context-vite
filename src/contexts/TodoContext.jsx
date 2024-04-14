@@ -37,10 +37,15 @@ export const TodoProvider = ({ children }) => {
     );
     // Replace the todo with the updated Todo
     setTodos(updatedTodo);
-  };
+ };
+ // Function that will remove Todo
+ const removeTodo = (todoToDelete) => {
+  const addTodo = todos.filter((todo) => todo.id !== todoToDelete)
+  setTodos(addTodo)
+ }
 
   return (
-    <TodoContext.Provider value={{ todos, addTodo, updateTodo }}>
+    <TodoContext.Provider value={{ todos, addTodo, updateTodo, removeTodo }}>
       {children}
     </TodoContext.Provider>
   );

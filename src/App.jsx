@@ -7,9 +7,11 @@ export const App = () => {
   return (
     <main>
       <TodoProvider>
-        <UserGreeting />
-        <TodoForm />
-        <TodoList />
+        <div className="inner-container">
+          <UserGreeting />
+          <TodoForm />
+          <TodoList />
+        </div>
       </TodoProvider>
     </main>
   );

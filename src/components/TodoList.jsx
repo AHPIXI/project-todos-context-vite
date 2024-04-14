@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export const TodoList = () => {
   // Fetch all todos from globel state
-  const { todos, updateTodo, removeTodo } = useTodo();
+  const { todos, updateTodo, removeTodo, checkTodo } = useTodo();
   const [updatedDescription, setUpdatedDescription] = useState("");
   const [editMode, setEditMode] = useState(null);
 
@@ -17,11 +17,11 @@ export const TodoList = () => {
   const handleCheckboxChange = (id) => {
     // Create a new variable for updated todos and loop throught existing todos to find todo with matching id.
     // Set the matching todo to the opposite value. If completed set to uncompleted and vice versa.
-    const updatedTodos = todos.map((todo) =>
+    const checkedTodos = todos.map((todo) =>
       // This is a ternary operator. "condition ? if value is true : if value is false"
       todo.id === id ? { ...todo, isCompleted: !todo.isCompleted } : todo
     );
-    updateTodo(updatedTodos);
+    checkTodo(checkedTodos);
   };
 
   // Function that will save the incomming changes and close edit mode.
@@ -37,7 +37,7 @@ export const TodoList = () => {
       {todos.length > 0 && (
         <div className="todo-list-wrapper">
           <div className="todo-section uncompleted-section">
-            <h3>Uncompleted tasks</h3>
+            <h3>My tasks</h3>
             {/* Mapp all uncompleted lists */}
             {todos.map(
               (todo) =>
@@ -53,6 +53,7 @@ export const TodoList = () => {
                       {editMode === todo.id ? (
                         <>
                           <input
+                            className="input__update"
                             type="text"
                             value={updatedDescription}
                             onChange={(e) =>
@@ -86,7 +87,7 @@ export const TodoList = () => {
             )}
 
             <div className="todo-section completed-section">
-              <h3>Completed tasks</h3>
+              <h3>Completed ✔</h3>
               {/* Mapp all completed lists */}
               {todos.map(
                 (todo) =>

@@ -3,20 +3,35 @@
 }
 
 .todo-section {
-  /* background-color: darkseagreen; */
+  margin: 20px auto;
 }
 
 .todo-wrapper {
   border: 1px solid black;
+  border-radius: 10px;
+  padding: 5px 10px;
+  margin: 10px 0;
 }
 
 .todo-wrapper form {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 10px 0;
 }
 
 .todo-section .description {
   min-width: 500px;
   padding: 0 30px;
+}
+
+.completed-section .description {
+  text-decoration: underline line-through;
+}
+
+.uncompleted-section .input__update {
+  min-width: 300px;
+  margin: 0 30px;
+  display: flex;
+  flex: 1;
 }

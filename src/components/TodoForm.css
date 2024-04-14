@@ -1,0 +1,14 @@
+.form__container input {
+  min-width: 300px;
+  margin-right: 10px;
+}
+
+.form__container button {
+  background-color: #000;
+  color: #fff;
+  padding: 10px 15px;
+}
+
+.form__container button:hover {
+  background-color: #3a3a3a;
+}

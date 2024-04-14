@@ -1,0 +1,19 @@
+.userinfo__container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding-top: 20px;
+}
+
+.date__container p {
+  font-weight: 600;
+}
+
+.greeting {
+  color: #b5b5b5;
+  font-weight: 500;
+}
+
+h1 {
+  margin: 20px 0;
+}

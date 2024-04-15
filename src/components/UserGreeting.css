@@ -17,3 +17,9 @@
 h1 {
   margin: 20px 0;
 }
+
+@media (max-width: 970px) {
+  h1 {
+    font-size: 20px;
+  }
+}

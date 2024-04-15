@@ -1,5 +1,5 @@
 .form__container input {
-  min-width: 300px;
+  width: 70%;
   margin-right: 10px;
 }
 
@@ -11,4 +11,10 @@
 
 .form__container button:hover {
   background-color: #3a3a3a;
+}
+
+@media (max-width: 970px) {
+  .form__container input {
+    width: 100%;
+  }
 }
